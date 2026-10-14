@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dipak Kadam - 1-Page Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm 15mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e293b;
+      background-color: #f8fafc;
+      line-height: 1.35;
+      font-size: 10pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .resume-container {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 28px 36px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        font-size: 9.5pt;
+        line-height: 1.3;
+      }
+      .resume-container {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+        width: 100%;
+        min-height: auto;
+      }
+      .no-print {
+        display: none !important;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+
+    /* Print Controls Banner */
+    .print-bar {
+      max-width: 210mm;
+      margin: 15px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 12px 20px;
+      border-radius: 8px;
+    }
+
+    .print-btn {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .print-btn:hover {
+      background: #4338ca;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 20pt;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .role-title {
+      font-size: 10pt;
+      font-weight: 600;
+      color: #4338ca;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      font-size: 8.5pt;
+      color: #475569;
+    }
+
+    .contact-links a {
+      color: #334155;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-links a:hover {
+      color: #4f46e5;
+      text-decoration: underline;
+    }
+
+    .divider {
+      color: #cbd5e1;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #0f172a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+    }
+
+    /* Education */
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .item-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .item-subtitle {
+      font-size: 9pt;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .item-date, .item-location {
+      font-size: 8.5pt;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* Skills Table/Grid */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+      font-size: 8.8pt;
+    }
+
+    .skill-row {
+      display: flex;
+    }
+
+    .skill-label {
+      width: 140px;
+      font-weight: 600;
+      color: #0f172a;
+      shrink: 0;
+    }
+
+    .skill-values {
+      color: #334155;
+      flex: 1;
+    }
+
+    /* Projects */
+    .project-item {
+      margin-bottom: 7px;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .project-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .project-tech {
+      font-size: 8.5pt;
+      font-weight: 500;
+      color: #4338ca;
+      font-style: italic;
+    }
+
+    .project-links {
+      font-size: 8pt;
+      color: #4f46e5;
+    }
+
+    .project-links a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    ul.bullets {
+      list-style-type: disc;
+      padding-left: 16px;
+      margin-top: 1px;
+    }
+
+    ul.bullets li {
+      font-size: 8.6pt;
+      color: #334155;
+      margin-bottom: 1.5px;
+    }
+
+    /* Certifications */
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.8pt;
+      margin-bottom: 2px;
+    }
+
+    .cert-name {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .cert-issuer {
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls for saving/printing -->
+  <div class="print-bar no-print">
+    <div>
+      <strong>Dipak Kadam — ATS 1-Page Resume</strong>
+      <span style="font-size: 12px; color: #94a3b8; margin-left: 8px;">Formatted specifically for single-page A4 printing</span>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button class="print-btn" onclick="window.print()">
+        🖨️ Print / Save as PDF
+      </button>
+      <a href="/" style="color: #cbd5e1; font-size: 13px; text-decoration: none; display: flex; align-items: center;">
+        ← Back to Portfolio
+      </a>
+    </div>
+  </div>
+
+  <div class="resume-container">
+    <!-- Header -->
+    <header>
+      <h1>Dipak Kadam</h1>
+      <div class="role-title">Full Stack Web Developer • B.Tech Information Technology</div>
+      <div class="contact-links">
+        <span>Shirpur, Maharashtra, India (Open to Remote)</span>
+        <span class="divider">|</span>
+        <span>Phone: <a href="tel:+919322332363">+91 9322332363</a></span>
+        <span class="divider">|</span>
+        <span>Email: <a href="mailto:kadamdipak943@gmail.com">kadamdipak943@gmail.com</a></span>
+        <br>
+        <span>LinkedIn: <a href="https://www.linkedin.com/in/dipak-kadam-012066327" target="_blank">linkedin.com/in/dipak-kadam-012066327</a></span>
+        <span class="divider">|</span>
+        <span>GitHub: <a href="https://github.com/kadamdipak" target="_blank">github.com/kadamdipak</a></span>
+        <span class="divider">|</span>
+        <span>CodeChef: <a href="https://www.codechef.com/users/rcpit251109071" target="_blank">codechef.com/users/rcpit251109071</a></span>
+        <span class="divider">|</span>
+        <span>Portfolio: <a href="http://localhost:5173" target="_blank">dipak-portfolio.dev</a></span>
+      </div>
+    </header>
+
+    <!-- Education -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="item-header">
+        <div>
+          <span class="item-title">R.C. Patel Institute of Technology (RCPIT)</span>
+          <span class="item-location"> — Shirpur, Maharashtra</span>
+        </div>
+        <span class="item-date">2025 – 2029</span>
+      </div>
+      <div class="item-header">
+        <span class="item-subtitle">Bachelor of Technology (B.Tech) in Information Technology</span>
+        <span class="item-date" style="color: #059669; font-weight: 700;">CGPA: 7.79</span>
+      </div>
+      <div class="item-header" style="font-size: 8.5pt; margin-top: 2px;">
+        <span style="color: #334155;">Higher Secondary Certificate (12th / HSC) — Maharashtra State Board (Science)</span>
+        <span style="color: #0f172a; font-weight: 600;">74.33%</span>
+      </div>
+      <div class="item-header" style="font-size: 8.5pt;">
+        <span style="color: #334155;">Secondary School Certificate (10th / SSC) — Maharashtra State Board</span>
+        <span style="color: #0f172a; font-weight: 600;">88.20%</span>
+      </div>
+      <p style="font-size: 8.5pt; color: #475569; margin-top: 2px;">
+        <strong>Relevant Coursework:</strong> Object-Oriented Programming (Java), Data Structures & Algorithms, Database Management Systems, Operating Systems, Web Technologies.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <div class="skill-label">Programming Languages:</div>
+          <div class="skill-values"><strong>Java</strong>, JavaScript (ES6+), HTML5, CSS3</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Backend & APIs:</div>
+          <div class="skill-values"><strong>Node.js</strong>, Express.js, RESTful API Design, JWT Authentication, Server Middleware</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Databases & Storage:</div>
+          <div class="skill-values">MongoDB, Mongoose ODM, Relational Database Fundamentals (SQL)</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Frontend & Styling:</div>
+          <div class="skill-values">React.js, Tailwind CSS, Responsive Web Design, DOM Manipulation</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Tools & Platforms:</div>
+          <div class="skill-values">Git, GitHub, Postman, VS Code, npm, Vercel / Render Deployment</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section>
+      <h2 class="section-title">Featured Projects</h2>
+
+      <!-- Project 1 -->
+      <div class="project-item">
+        <div class="project-header">
+          <div>
+            <span class="project-title">Campus Academic Material Exchange Portal</span>
+            <span class="project-tech"> | HTML5, CSS3, JavaScript, Node.js, Express.js, MongoDB</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kadamdipak/campus-material-exchange-portal" target="_blank">[GitHub]</a>
+            <a href="https://github.com/kadamdipak/campus-material-exchange-portal" target="_blank">[Live Demo]</a>
+          </div>
+        </div>
+        <ul class="bullets">
+          <li>Architected a full-stack campus portal enabling students to upload, search, donate, and exchange semester textbooks, handwritten notes, and previous year exam papers.</li>
+          <li>Engineered RESTful API endpoints using <strong>Node.js & Express</strong> with <strong>MongoDB</strong> query filters to search resources by branch, semester, and subject code.</li>
+          <li>Implemented role-based access control, input validation, and responsive mobile-first UI, successfully handling 300+ simulated academic resource uploads.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-item">
+        <div class="project-header">
+          <div>
+            <span class="project-title">CodeTrack — DSA & Problem Solving Hub</span>
+            <span class="project-tech"> | React.js, Node.js, Express.js, MongoDB, Tailwind CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kadamdipak/dsa-problem-tracker" target="_blank">[GitHub]</a>
+            <a href="https://github.com/kadamdipak/dsa-problem-tracker" target="_blank">[Live Demo]</a>
+          </div>
+        </div>
+        <ul class="bullets">
+          <li>Built a full-stack developer tracker to log, categorize, and review competitive programming problems solved on CodeChef and coding platforms.</li>
+          <li>Implemented interactive data visualizations for topic streaks (Arrays, Strings, Linked Lists) and automated revision reminder tags.</li>
+          <li>Designed secure REST APIs with MongoDB storage to archive personal solution notes, time complexities, and key algorithmic takeaways.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-item">
+        <div class="project-header">
+          <div>
+            <span class="project-title">Campus Connect — Peer Academic Discussion Board</span>
+            <span class="project-tech"> | Node.js, Express.js, MongoDB, REST APIs, Postman</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kadamdipak/campus-connect-api" target="_blank">[GitHub]</a>
+          </div>
+        </div>
+        <ul class="bullets">
+          <li>Engineered a high-performance backend forum service for university peers to post academic queries, participate in threaded discussions, and upvote verified solutions.</li>
+          <li>Secured endpoints using token authentication and structured MongoDB index schemas for rapid text queries across subjects and course tags.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Certifications & Achievements -->
+    <section>
+      <h2 class="section-title">Certifications & Achievements</h2>
+      <div class="cert-item">
+        <div>
+          <span class="cert-name">Data Structures & Algorithmic Problem Solving</span>
+          <span class="cert-issuer"> — CodeChef</span>
+        </div>
+        <span class="item-date">2024</span>
+      </div>
+      <div class="cert-item">
+        <div>
+          <span class="cert-name">Full Stack Web Development & Modern JavaScript Specialization</span>
+          <span class="cert-issuer"> — Coursera</span>
+        </div>
+        <span class="item-date">2024</span>
+      </div>
+      <div class="cert-item">
+        <div>
+          <span class="cert-name">Competitive Programming Active Contender</span>
+          <span class="cert-issuer"> — Regular solver on CodeChef focusing on Java and JavaScript</span>
+        </div>
+        <span class="item-date">2024 – Present</span>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
